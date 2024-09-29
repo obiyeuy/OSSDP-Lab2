@@ -20,7 +20,7 @@ class L2022210939_18_Test {
      * 有效输入：包含正整数、负整数和零的数组。
      * 输入数组包含零的情况，确保返回的结果正确处理了零的影响
      *
-     * 边界值分析： 边界情况：数组长度为 1、2 和大于 2 的情况。
+     * 边界值分析： 边界情况：数组为null以及数组长度为 0、1、2 和大于 2 的情况。
      * 输入数组的长度为 1 时，期望返回一个包含 1 的数组
      * 输入数组的长度为 2 时，期望返回一个包含两个元素的数组，分别为另一个元素的值
      */
@@ -63,6 +63,30 @@ class L2022210939_18_Test {
     void testProductExceptSelf_Zero() {
         int[] nums = {2, 1, 0, -5, 3};
         int[] expected = {0, 0, -30, 0, 0};
+        assertArrayEquals(expected, solution.productExceptSelf(nums));
+    }
+
+    /**
+     * 测试目的：测试边界情况，数组为null。
+     * 用到的测试用例：
+     * 输入: null
+     * 输出: null
+     */
+    @Test
+    void testProductExceptSelf_Null() {
+        assertArrayEquals(null, solution.productExceptSelf(null));
+    }
+
+    /**
+     * 测试目的：测试边界情况，数组长度为 0。
+     * 用到的测试用例：
+     * 输入: []
+     * 输出: []
+     */
+    @Test
+    void testProductExceptSelf_ZeroElements() {
+        int[] nums = {};
+        int[] expected = {};
         assertArrayEquals(expected, solution.productExceptSelf(nums));
     }
 
